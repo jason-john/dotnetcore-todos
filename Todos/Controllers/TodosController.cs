@@ -14,5 +14,17 @@ namespace Todos.Controllers
         {
             return Ok(TodosDataStore.Current.Todos);
         }
+        [HttpGet("{id}")]
+        public IActionResult GetTodo(int id)
+        {
+            var todo = TodosDataStore.Current.Todos.FirstOrDefault(t => t.Id == id);
+
+            if (todo == null)
+            {
+                return NotFound("Todo not found");
+            }
+
+            return Ok(todo);
+        }
     }
 }
