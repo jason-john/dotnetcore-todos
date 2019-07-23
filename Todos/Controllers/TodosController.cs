@@ -14,6 +14,11 @@ namespace Todos.Controllers
         {
             return Ok(TodosDataStore.Current.Todos);
         }
+        /// <summary>
+        /// Retrieve a single Todo
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult GetTodo(int id)
         {
